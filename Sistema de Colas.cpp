@@ -151,10 +151,13 @@ void llegada(void)  /* Funcion de llegada */
     float espera;
 
     /* Programa la siguiente llegada. */
+    float prox_llegada = expon(media_entre_llegadas);
+    printf("Tiempo %f: LLEGADA - Siguiente en %f (intervalo: %f)\n", 
+           tiempo_simulacion, tiempo_simulacion + prox_llegada, prox_llegada);
 
-    tiempo_sig_evento[1] = tiempo_simulacion + expon(media_entre_llegadas);
+    tiempo_sig_evento[1] = tiempo_simulacion + prox_llegada;
 
-    /* Reisa si el servidor esta OCUPADO. */
+    /* Revisa si el servidor esta OCUPADO. */
 
     if (estado_servidor == OCUPADO) {
 
@@ -272,6 +275,8 @@ float expon(float media)  /* Funcion generadora de la exponencias */
 {
     /* Retorna una variable aleatoria exponencial con media "media"*/
 
-    return -media * log(lcgrand(1));
+    float random_num = lcgrand(1);
+    printf("lcgrand(1) = %.10f\n", random_num);  // Ver el número "aleatorio"
+    return -media * log(random_num);
 }
 
