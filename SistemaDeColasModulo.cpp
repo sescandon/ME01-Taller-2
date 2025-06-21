@@ -1,4 +1,4 @@
-/* simulacion_modulos.cpp - Implementación de los módulos */
+/* Implementación de los módulos según capítulo 1.7.1 */
 
 #include "SistemaDeColasModulo.h"
 #include "lcgrand.cpp"
